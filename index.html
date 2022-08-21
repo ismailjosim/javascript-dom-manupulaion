@@ -68,12 +68,12 @@
 						<div class="card mx-auto border bg-slate-800 shadow-xl">
 							<figure><img src="images/Neymar-Junior.jpg" alt="Neymar-Junior" /></figure>
 							<div class="card-body text-white text-center p-5">
-								<h2 class="card-title font-extrabold text-2xl">Neymar-Junior</h2>
+								<h2 class="card-title font-extrabold text-2xl">Neymar-Jr</h2>
 								<p class="leading-10 flex justify-around">
 									<span>10 Goals</span>
 									<span>12 Assist</span>
 								</p>
-								<button type="button"
+								<button id="btn-select" onclick="clickMe(this)" type="button"
 									class="mt-5 py-2 px-12 bg-blue-500 text-white text-md font-normal">
 									SELECT
 								</button>
@@ -88,7 +88,7 @@
 									<span>20 Goals</span>
 									<span>10 Assist</span>
 								</p>
-								<button type="button"
+								<button id="btn-select" onclick="clickMe(this)" type="button"
 									class="mt-5 py-2 px-12 bg-blue-500 text-white text-md font-normal">
 									SELECT
 								</button>
@@ -103,7 +103,7 @@
 									<span>60 Goals</span>
 									<span>20 Assist</span>
 								</p>
-								<button type="button"
+								<button id="btn-select" onclick="clickMe(this)" type="button"
 									class="mt-5 py-2 px-12 bg-blue-500 text-white text-md font-normal">
 									SELECT
 								</button>
@@ -118,7 +118,7 @@
 									<span>6 Goals</span>
 									<span>1 Assist</span>
 								</p>
-								<button type="button"
+								<button id="btn-select" onclick="clickMe(this)" type="button"
 									class="mt-5 py-2 px-12 bg-blue-500 text-white text-md font-normal">
 									SELECT
 								</button>
@@ -133,7 +133,7 @@
 									<span>36 Goals</span>
 									<span>120 Assist</span>
 								</p>
-								<button type="button"
+								<button id="btn-select" onclick="clickMe(this)" type="button"
 									class="mt-5 py-2 px-12 bg-blue-500 text-white text-md font-normal">
 									SELECT
 								</button>
@@ -148,7 +148,7 @@
 									<span>5 Goals</span>
 									<span>3 Assist</span>
 								</p>
-								<button type="button"
+								<button id="btn-select" onclick="clickMe(this)" type="button"
 									class="mt-5 py-2 px-12 bg-blue-500 text-white text-md font-normal">
 									SELECT
 								</button>
@@ -170,16 +170,7 @@
 											<th></th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr>
-											<th>1</th>
-											<td>Neymar-Junior</td>
-										</tr>
-										<tr>
-											<th>2</th>
-											<td>Lionel Messi</td>
-										</tr>
-									</tbody>
+									<tbody id="table-body"></tbody>
 								</table>
 							</div>
 
@@ -228,6 +219,8 @@
 	<footer class="text-center py-5 text-white border-t">
 		<p>Copyright &copy; 2022 All Rights Reserved.</p>
 	</footer>
+	<!-- script JS links -->
+	<script type="text/javascript" src="js/app.js"></script>
 </body>
 
 </html>
