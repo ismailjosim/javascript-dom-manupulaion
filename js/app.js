@@ -10,6 +10,8 @@ const perPlayerExp = document.querySelector('#total-per-player-exp');
 const btnTotalCalc = document.querySelector('#total-calc-btn');
 const finalTotalExp = document.querySelector('#total-exp');
 
+const tableBody = document.querySelector('#table-body');
+
 //============> Show selected player
 let countPlayer = 0;
 
@@ -18,13 +20,13 @@ const clickMe = function (element) {
 
     const targetParent = element.parentNode; // target parent
     const title = targetParent.children[0].innerText; // get player name
-    const listItem = document.createElement('li'); // Create Table row(tr) element
+    const tableRow = document.createElement('tr'); // Create Table row(tr) element
 
     if (countPlayer > 5) {
         alert('Please Add only 5 players!');
     } else {
-        listItem.innerHTML = `<p>${ countPlayer }</p> <p>${ title }</p>`; // innerHTML ==> tableRow
-        listItems.appendChild(listItem);
+        tableRow.innerHTML = `<tr><th>0${ countPlayer }</th><td>${ title }</td></tr>`; // innerHTML ==> tableRow
+        tableBody.appendChild(tableRow);
 
         // disable button
         element.style.backgroundColor = "gray";
@@ -48,7 +50,7 @@ const getInnerText = function (element) {
 
 // calculation function
 btnCalculate.addEventListener('click', function () {
-    const selectPlayerList = document.querySelectorAll('li');
+    const selectPlayerList = document.querySelectorAll('tr');
     const playerListNumber = selectPlayerList.length;
 
     // get per player input value
