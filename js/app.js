@@ -1,9 +1,12 @@
 // ===========> Select Element
 const selectBtn = document.querySelectorAll('#btn-select');
-const btnCalculate = document.querySelector('#btn-calculate');
 const listItems = document.getElementById('list_items');
+const btnCalculate = document.querySelector('#btn-calculate');
 
-// get value from selected players
+const costPerPlayer = document.querySelector('#per-player-cost');
+const managerFees = document.querySelector('#manager-fees');
+const coachFees = document.querySelector('#coach-fees');
+const perPlayerExp = document.querySelector('#total-per-player-exp');
 
 
 //============> Show selected player
@@ -19,7 +22,7 @@ const clickMe = function (element) {
     if (countPlayer > 5) {
         alert('Please Add only 5 players!');
     } else {
-        listItem.innerHTML = `<p>0${ countPlayer }</p> <p>${ title }</p>`; // innerHTML ==> tableRow
+        listItem.innerHTML = `<p>${ countPlayer }</p> <p>${ title }</p>`; // innerHTML ==> tableRow
         listItems.appendChild(listItem);
 
         // disable button
@@ -28,17 +31,30 @@ const clickMe = function (element) {
     }
 };
 
+// get input value
+const getInputNumber = function (element) {
+    const elementStr = element.value;
+    const convertNumber = parseFloat(elementStr);
+    return convertNumber;
+};
 
-const getPlayerNumber = function (element) {
-    const elementParent = element.childNodes[1];
-    const stringValue = elementParent.children[0].innerText;
-    const intNumber = parseInt(stringValue);
-    return intNumber;
+// get inner Text
+const getInnerText = function (element) {
+    const elementStr = element.innerText;
+    const convertNumber = parseFloat(elementStr);
+    return convertNumber;
 };
 
 // calculation function
 btnCalculate.addEventListener('click', function () {
-    const getNumberValue = getPlayerNumber(tableBody);
-    const addPlayerNumber = getNumberValue.length;
-    console.log(addPlayerNumber);
+    const selectPlayerList = document.querySelectorAll('li');
+    const playerListNumber = selectPlayerList.length;
+
+    // get per player input value
+    const perPlayerCost = getInputNumber(costPerPlayer);
+    const totalPlayerExp = playerListNumber * perPlayerCost;
+
+    // add total value
+    perPlayerExp.innerText = totalPlayerExp;
+
 });
