@@ -1,36 +1,44 @@
 // ===========> Select Element
 const selectBtn = document.querySelectorAll('#btn-select');
-const tableBody = document.getElementById('table-body');
+const btnCalculate = document.querySelector('#btn-calculate');
+const listItems = document.getElementById('list_items');
+
+// get value from selected players
 
 
-const playerArr = [];
 //============> Show selected player
-const selectedPlayer = function (players) {
-    tableBody.innerHTML = ''; // make tableBody box empty
+let countPlayer = 0;
 
-    for (let i = 0; i < players.length; i++) {// looping over the players array of object
+const clickMe = function (element) {
+    countPlayer += 1; // increase +1 every time call the function
 
-        const playerName = players[i].name; // get array name.
+    const targetParent = element.parentNode; // target parent
+    const title = targetParent.children[0].innerText; // get player name
+    const listItem = document.createElement('li'); // Create Table row(tr) element
 
-        const tableRow = document.createElement('tr'); // Create Table row(tr) element
+    if (countPlayer > 5) {
+        alert('Please Add only 5 players!');
+    } else {
+        listItem.innerHTML = `<p>0${ countPlayer }</p> <p>${ title }</p>`; // innerHTML ==> tableRow
+        listItems.appendChild(listItem);
 
-        tableRow.innerHTML = `<td>${ i + 1 }</td><td>${ playerName }</td>`; // innerHTML ==> tableRow
-
-        tableBody.appendChild(tableRow); // Show tableRow ==> tableBody
-
+        // disable button
+        element.style.backgroundColor = "gray";
+        element.setAttribute("disabled", "true");
     }
 };
 
-// ==========> Click Me function
-const clickMe = function (element) {
-    const targetParent = element.parentNode; // target parent
 
-    const title = targetParent.children[0].innerText; // get player name
-
-    const playerObj = { name: title }; // make player an object.
-
-    playerArr.push(playerObj); // Push products in an array
-
-    selectedPlayer(playerArr);
-
+const getPlayerNumber = function (element) {
+    const elementParent = element.childNodes[1];
+    const stringValue = elementParent.children[0].innerText;
+    const intNumber = parseInt(stringValue);
+    return intNumber;
 };
+
+// calculation function
+btnCalculate.addEventListener('click', function () {
+    const getNumberValue = getPlayerNumber(tableBody);
+    const addPlayerNumber = getNumberValue.length;
+    console.log(addPlayerNumber);
+});

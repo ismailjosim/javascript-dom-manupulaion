@@ -162,15 +162,9 @@
 						<div class="bg-slate-800 text-white text-center mb-10 rounded-lg">
 							<h2 class="card-title text-2xl pt-10 font-extrabold">Selected - V</h2>
 							<div class="text-center p-5 h-80">
-								<table class="table w-full">
+								<table class="w-full">
 									<!-- head -->
-									<thead>
-										<tr>
-											<th></th>
-											<th></th>
-										</tr>
-									</thead>
-									<tbody id="table-body"></tbody>
+									<ul id="list_items" class="font-semibold text-sky-400/100"></ul>
 								</table>
 							</div>
 
@@ -183,7 +177,8 @@
 									<input type="number" value="1000"
 										class="block w-1/2 text-md font-semibold p-2 border bg-slate-800" />
 								</label>
-								<button type="button" class="w-11/12 py-3 bg-blue-600 text-white text-md font-normal">
+								<button id="btn-calculate" type="button"
+									class="w-11/12 py-3 bg-blue-600 text-white text-md font-normal">
 									Calculate
 								</button>
 								<label class="flex justify-around items-center  py-5">
