@@ -1,16 +1,16 @@
 // ===========> Select Element
 const selectBtn = document.querySelectorAll('#btn-select');
 const listItems = document.getElementById('list_items');
-const btnCalculate = document.querySelector('#btn-calculate');
-const tableBody = document.querySelector('#table-body');
+const btnCalculate = document.getElementById('btn-calculate');
+const tableBody = document.getElementById('table-body');
 
-const costPerPlayer = document.querySelector('#per-player-cost');
-const managerFees = document.querySelector('#manager-fees');
-const coachFees = document.querySelector('#coach-fees');
+const costPerPlayer = document.getElementById('per-player-cost');
+const managerFees = document.getElementById('manager-fees');
+const coachFees = document.getElementById('coach-fees');
 
-const totalPerPlayerExp = document.querySelector('#total-per-player-exp');
-const btnTotalCalc = document.querySelector('#total-calc-btn');
-const finalPlayerExp = document.querySelector('#total-exp');
+const totalPerPlayerExp = document.getElementById('total-per-player-exp');
+const btnTotalCalc = document.getElementById('total-calc-btn');
+const finalPlayerExp = document.getElementById('total-exp');
 
 //============> Show selected player
 let countPlayer = 0;
