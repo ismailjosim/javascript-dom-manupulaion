@@ -7,7 +7,8 @@ const costPerPlayer = document.querySelector('#per-player-cost');
 const managerFees = document.querySelector('#manager-fees');
 const coachFees = document.querySelector('#coach-fees');
 const perPlayerExp = document.querySelector('#total-per-player-exp');
-
+const btnTotalCalc = document.querySelector('#total-calc-btn');
+const finalTotalExp = document.querySelector('#total-exp');
 
 //============> Show selected player
 let countPlayer = 0;
@@ -57,4 +58,16 @@ btnCalculate.addEventListener('click', function () {
     // add total value
     perPlayerExp.innerText = totalPlayerExp;
 
+});
+//=========> Total Expenses Calculation Button
+btnTotalCalc.addEventListener('click', function () {
+    const playerPerExp = getInnerText(perPlayerExp);
+
+    //===> Manager & coach exp.
+    const manager = getInputNumber(managerFees);
+    const coach = getInputNumber(managerFees);
+
+    const TotalBalance = playerPerExp + manager + coach;
+
+    finalTotalExp.innerText = TotalBalance;
 });
