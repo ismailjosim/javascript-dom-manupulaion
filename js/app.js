@@ -2,32 +2,29 @@
 const selectBtn = document.querySelectorAll('#btn-select');
 const listItems = document.getElementById('list_items');
 const btnCalculate = document.querySelector('#btn-calculate');
+const tableBody = document.querySelector('#table-body');
 
 const costPerPlayer = document.querySelector('#per-player-cost');
 const managerFees = document.querySelector('#manager-fees');
 const coachFees = document.querySelector('#coach-fees');
-const perPlayerExp = document.querySelector('#total-per-player-exp');
-const btnTotalCalc = document.querySelector('#total-calc-btn');
-const finalTotalExp = document.querySelector('#total-exp');
 
-const tableBody = document.querySelector('#table-body');
+const totalPerPlayerExp = document.querySelector('#total-per-player-exp');
+const btnTotalCalc = document.querySelector('#total-calc-btn');
+const finalPlayerExp = document.querySelector('#total-exp');
 
 //============> Show selected player
 let countPlayer = 0;
 
 const clickMe = function (element) {
     countPlayer += 1; // increase +1 every time call the function
-
     const targetParent = element.parentNode; // target parent
     const title = targetParent.children[0].innerText; // get player name
     const tableRow = document.createElement('tr'); // Create Table row(tr) element
-
     if (countPlayer > 5) {
         alert('Please Add only 5 players!');
     } else {
         tableRow.innerHTML = `<tr><th>0${ countPlayer }</th><td>${ title }</td></tr>`; // innerHTML ==> tableRow
         tableBody.appendChild(tableRow);
-
         // disable button
         element.style.backgroundColor = "gray";
         element.setAttribute("disabled", "true");
@@ -38,14 +35,19 @@ const clickMe = function (element) {
 const getInputNumber = function (element) {
     const elementStr = element.value;
     const convertNumber = parseFloat(elementStr);
-    return convertNumber;
-};
 
+    if (isNaN(convertNumber) !== true && convertNumber !== 0) {
+        return convertNumber;
+    }
+
+};
 // get inner Text
-const getInnerText = function (element) {
+const getInnerNumber = function (element) {
     const elementStr = element.innerText;
     const convertNumber = parseFloat(elementStr);
-    return convertNumber;
+    if (isNaN(convertNumber) !== true && convertNumber !== 0 && convertNumber < 0) {
+        return convertNumber;
+    }
 };
 
 // calculation function
@@ -55,21 +57,36 @@ btnCalculate.addEventListener('click', function () {
 
     // get per player input value
     const perPlayerCost = getInputNumber(costPerPlayer);
-    const totalPlayerExp = playerListNumber * perPlayerCost;
+    const totalPlayer = playerListNumber * perPlayerCost;
 
-    // add total value
-    perPlayerExp.innerText = totalPlayerExp;
+    if (selectPlayerList.length < 1) {
+        alert('Player is not added ⚠');
 
+    } else if (isNaN(perPlayerCost) === true) {
+
+        alert('PLEASE! Add A Valid Number ⚠');
+    } else {
+
+        totalPerPlayerExp.innerText = totalPlayer;
+    }
 });
+
 //=========> Total Expenses Calculation Button
 btnTotalCalc.addEventListener('click', function () {
-    const playerPerExp = getInnerText(perPlayerExp);
-
-    //===> Manager & coach exp.
+    const playerPerExp = getInnerNumber(totalPerPlayerExp);
     const manager = getInputNumber(managerFees);
-    const coach = getInputNumber(managerFees);
+    const coach = getInputNumber(coachFees);
+
 
     const TotalBalance = playerPerExp + manager + coach;
 
-    finalTotalExp.innerText = TotalBalance;
+    if (isNaN(TotalBalance) === true) {
+        alert('Player Expenses is not added ⚠');
+    } else if (isNaN(TotalBalance) === true) {
+        alert('⚠');
+    }
+    else {
+
+        finalPlayerExp.innerText = TotalBalance;
+    }
 });
