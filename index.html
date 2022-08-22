@@ -9,7 +9,9 @@
 	<title>Home - Select Your Best Five</title>
 
 	<!-- link Google font CDN,Tailwind CDN & Custom CSS -->
-
+	<!-- favicon -->
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+	<!--=============== Google fonts link ===============-->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -20,11 +22,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
 		rel="stylesheet" />
 
-	<!-- favicon -->
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-
 	<!-- Tailwind CDN -->
 	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- font awesome CDN link -->
+	<script src="https://kit.fontawesome.com/f811dd765f.js" crossorigin="anonymous"></script>
 
 	<!-- custom css -->
 	<style>
@@ -225,8 +227,43 @@
 	</main>
 	<!-- main section -->
 	<!-- footer section -->
-	<footer class="text-center py-5 text-white border-t">
-		<p>Copyright &copy; 2022 All Rights Reserved.</p>
+
+	<footer class="footer bg-gray-800 text-neutral-content text-center text-white border-t-2 py-10">
+		<div class="grid grid-cols-4 place-content-around py-10">
+			<div class="flex flex-col gap-5">
+				<span class="footer-title font-bold">Services</span>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Branding</a>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Design</a>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Marketing</a>
+			</div>
+			<div class="flex flex-col gap-3">
+				<span class="footer-title font-bold">Company</span>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">About us</a>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Contact</a>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Jobs</a>
+			</div>
+			<div class="flex flex-col gap-3">
+				<span class="footer-title font-bold ">Legal</span>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Terms of use</a>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Privacy policy</a>
+				<a href="index.html" class="hover:text-blue-500 font-semibold">Cookie policy</a>
+			</div>
+			<div class="flex flex-col gap-3">
+				<span class="footer-title font-bold ">Follow Us On:</span>
+				<a href="index.html" class="hover:text-blue-500">
+					<i class="fa-brands fa-facebook-f"></i>
+				</a>
+				<a href="index.html" class="hover:text-blue-500">
+					<i class="fa-brands fa-twitter"></i>
+				</a>
+				<a href="index.html" class="hover:text-blue-500">
+					<i class="fa-brands fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+		<div>
+			<p>Copyright &copy; 2022 | All Rights Reserved.</p>
+		</div>
 	</footer>
 	<!-- script JS links -->
 	<script type="text/javascript" src="js/app.js"></script>
